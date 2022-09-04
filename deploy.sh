@@ -34,7 +34,10 @@ npm install
 npm run build
 
 if [ $? -eq 0 ]; then
-    rm -rf build/{robots.txt,sitemap.xml} # forbid SEO
+    # forbid SEO
+    cp robots.txt build/
+    rm -rf build/sitemap.xml
+
     echo -e "\n$gbGood Successfully built and deployed note!"
 else
     echo -e "\n$gbError Faild to deploy note, please check it!"
